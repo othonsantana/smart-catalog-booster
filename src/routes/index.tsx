@@ -190,7 +190,7 @@ function LandingPage() {
                   </div>
                 ))}
               </div>
-              <span>+2.300 revendedoras já vendem com a gente</span>
+              <span>+2.300 revendedores de perfumes e cosméticos já vendem com a gente</span>
             </div>
           </motion.div>
 
@@ -484,7 +484,7 @@ function LandingPage() {
             </span>
             Catálogo Inteligente
           </div>
-          <div>© {new Date().getFullYear()} — Feito com carinho pra revendedoras.</div>
+          <div>© {new Date().getFullYear()} — Feito com carinho pra quem vende perfumes e cosméticos.</div>
         </div>
       </footer>
     </div>
