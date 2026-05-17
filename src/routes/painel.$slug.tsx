@@ -1,5 +1,5 @@
-import { createFileRoute, Link, notFound } from "@tanstack/react-router";
-import { useState } from "react";
+import { createFileRoute, Link, notFound, useNavigate } from "@tanstack/react-router";
+import { useState, useEffect } from "react";
 import { getReseller, formatBRL, type Product } from "@/lib/catalog-data";
 import { resellerStore, useReseller } from "@/lib/reseller-store";
 import { Button } from "@/components/ui/button";
@@ -24,7 +24,12 @@ import {
   Package,
   ExternalLink,
   RotateCcw,
+  Phone,
+  User,
+  Save,
+  CheckCircle,
 } from "lucide-react";
+import { isAuthenticated } from "@/lib/auth-store";
 
 export const Route = createFileRoute("/painel/$slug")({
   loader: ({ params }) => {
@@ -53,8 +58,13 @@ export const Route = createFileRoute("/painel/$slug")({
 
 function PanelPage() {
   const { slug } = Route.useParams();
+  const navigate = useNavigate();
   const reseller = useReseller(slug)!;
   const categories = Array.from(new Set(reseller.products.map((p) => p.category)));
+
+  useEffect(() => {
+    if (typeof window !== "undefined" && !isAuthenticated()) navigate({ to: "/" });
+  }, [navigate]);
 
   return (
     <div className="min-h-screen bg-soft-gradient pb-20">
@@ -77,6 +87,7 @@ function PanelPage() {
       </header>
 
       <main className="mx-auto max-w-5xl px-4 pt-6 space-y-6">
+        <StoreInfoSection slug={slug} reseller={reseller} />
         <BannerSection slug={slug} banner={reseller.banner} />
         <CategoriesSection slug={slug} categories={categories} />
         <ProductsSection slug={slug} products={reseller.products} categories={categories} />
@@ -124,6 +135,57 @@ function SectionCard({
       </div>
       {children}
     </Card>
+  );
+}
+
+function StoreInfoSection({ slug, reseller }: { slug: string; reseller: { storeName: string; whatsapp: string; instagram: string; bio: string } }) {
+  const [storeName, setStoreName] = useState(reseller.storeName);
+  const [whatsapp, setWhatsapp] = useState(reseller.whatsapp);
+  const [instagram, setInstagram] = useState(reseller.instagram);
+  const [bio, setBio] = useState(reseller.bio);
+  const [saved, setSaved] = useState(false);
+
+  function save() {
+    resellerStore.updateInfo(slug, {
+      storeName: storeName.trim() || undefined,
+      whatsapp: whatsapp.trim() || undefined,
+      instagram: instagram.trim() || undefined,
+      bio: bio.trim() || undefined,
+    });
+    setSaved(true);
+    setTimeout(() => setSaved(false), 2000);
+  }
+
+  return (
+    <SectionCard title="Informações da Loja" icon={User}>
+      <div className="grid sm:grid-cols-2 gap-3">
+        <div>
+          <span className="block text-xs font-medium text-muted-foreground mb-1">Nome da Loja</span>
+          <Input value={storeName} onChange={(e) => setStoreName(e.target.value)} placeholder="Nome da sua loja" className="rounded-xl" />
+        </div>
+        <div>
+          <span className="block text-xs font-medium text-muted-foreground mb-1">WhatsApp (com DDD)</span>
+          <div className="relative">
+            <Phone className="w-4 h-4 absolute left-3 top-1/2 -translate-y-1/2 text-muted-foreground" />
+            <Input value={whatsapp} onChange={(e) => setWhatsapp(e.target.value)} placeholder="5511999999999" className="rounded-xl pl-9" />
+          </div>
+        </div>
+        <div>
+          <span className="block text-xs font-medium text-muted-foreground mb-1">Instagram</span>
+          <Input value={instagram} onChange={(e) => setInstagram(e.target.value)} placeholder="@seuusuario" className="rounded-xl" />
+        </div>
+        <div>
+          <span className="block text-xs font-medium text-muted-foreground mb-1">Bio</span>
+          <Input value={bio} onChange={(e) => setBio(e.target.value)} placeholder="Uma frase sobre sua loja" className="rounded-xl" />
+        </div>
+      </div>
+      <div className="mt-3 flex items-center gap-3">
+        <Button onClick={save} className="rounded-xl bg-primary-gradient">
+          {saved ? <><CheckCircle className="w-4 h-4 mr-1" /> Salvo!</> : <><Save className="w-4 h-4 mr-1" /> Salvar informações</>}
+        </Button>
+        {saved && <span className="text-xs text-green-600 font-medium">Alterações salvas com sucesso</span>}
+      </div>
+    </SectionCard>
   );
 }
 

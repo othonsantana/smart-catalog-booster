@@ -10,6 +10,7 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as SitemapDotxmlRouteImport } from './routes/sitemap[.]xml'
+import { Route as AdminRouteImport } from './routes/admin'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as PainelSlugRouteImport } from './routes/painel.$slug'
 import { Route as LojaSlugRouteImport } from './routes/loja.$slug'
@@ -17,6 +18,11 @@ import { Route as LojaSlugRouteImport } from './routes/loja.$slug'
 const SitemapDotxmlRoute = SitemapDotxmlRouteImport.update({
   id: '/sitemap.xml',
   path: '/sitemap.xml',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AdminRoute = AdminRouteImport.update({
+  id: '/admin',
+  path: '/admin',
   getParentRoute: () => rootRouteImport,
 } as any)
 const IndexRoute = IndexRouteImport.update({
@@ -37,12 +43,14 @@ const LojaSlugRoute = LojaSlugRouteImport.update({
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/admin': typeof AdminRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/loja/$slug': typeof LojaSlugRoute
   '/painel/$slug': typeof PainelSlugRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/admin': typeof AdminRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/loja/$slug': typeof LojaSlugRoute
   '/painel/$slug': typeof PainelSlugRoute
@@ -50,20 +58,22 @@ export interface FileRoutesByTo {
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/admin': typeof AdminRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/loja/$slug': typeof LojaSlugRoute
   '/painel/$slug': typeof PainelSlugRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/sitemap.xml' | '/loja/$slug' | '/painel/$slug'
+  fullPaths: '/' | '/admin' | '/sitemap.xml' | '/loja/$slug' | '/painel/$slug'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/sitemap.xml' | '/loja/$slug' | '/painel/$slug'
-  id: '__root__' | '/' | '/sitemap.xml' | '/loja/$slug' | '/painel/$slug'
+  to: '/' | '/admin' | '/sitemap.xml' | '/loja/$slug' | '/painel/$slug'
+  id: '__root__' | '/' | '/admin' | '/sitemap.xml' | '/loja/$slug' | '/painel/$slug'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  AdminRoute: typeof AdminRoute
   SitemapDotxmlRoute: typeof SitemapDotxmlRoute
   LojaSlugRoute: typeof LojaSlugRoute
   PainelSlugRoute: typeof PainelSlugRoute
@@ -76,6 +86,13 @@ declare module '@tanstack/react-router' {
       path: '/sitemap.xml'
       fullPath: '/sitemap.xml'
       preLoaderRoute: typeof SitemapDotxmlRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/admin': {
+      id: '/admin'
+      path: '/admin'
+      fullPath: '/admin'
+      preLoaderRoute: typeof AdminRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/': {
@@ -104,6 +121,7 @@ declare module '@tanstack/react-router' {
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  AdminRoute: AdminRoute,
   SitemapDotxmlRoute: SitemapDotxmlRoute,
   LojaSlugRoute: LojaSlugRoute,
   PainelSlugRoute: PainelSlugRoute,

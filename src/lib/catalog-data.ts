@@ -31,7 +31,9 @@ export type Reseller = {
 
 const CATEGORIES = ["Perfumes", "Linha Corporal", "Linha Capilar"];
 
-const baseProducts: Product[] = [
+export const DEFAULT_BANNER = banner;
+
+export const DEFAULT_PRODUCTS: Product[] = [
   {
     id: "p1",
     name: "Eau de Parfum Floral",
@@ -135,7 +137,21 @@ export const RESELLERS: Record<string, Reseller> = {
 export const CATEGORIES_LIST = CATEGORIES;
 
 export function getReseller(slug: string): Reseller | undefined {
-  return RESELLERS[slug.toLowerCase()];
+  const key = slug.toLowerCase();
+  if (typeof window === "undefined") return RESELLERS[key];
+  try {
+    const raw = localStorage.getItem("ci_admin_v1");
+    if (raw) {
+      const adminState = JSON.parse(raw) as { resellers?: Record<string, any> };
+      const ar = adminState.resellers?.[key];
+      if (ar) {
+        const imageMap = new Map(DEFAULT_PRODUCTS.map((p) => [p.name, p.image]));
+        const products = (ar.products || []).map((p: any) => ({ ...p, image: p.image || imageMap.get(p.name) || "" }));
+        return { slug: ar.slug, name: ar.name, storeName: ar.storeName, bio: ar.bio, whatsapp: ar.whatsapp, instagram: ar.instagram, avatarInitials: ar.avatarInitials, banner: ar.banner || banner, products };
+      }
+    }
+  } catch {}
+  return RESELLERS[key];
 }
 
 export function formatBRL(value: number) {
