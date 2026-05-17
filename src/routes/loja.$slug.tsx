@@ -63,7 +63,8 @@ export const Route = createFileRoute("/loja/$slug")({
 });
 
 function StorePage() {
-  const { reseller } = Route.useLoaderData();
+  const { slug } = Route.useParams();
+  const reseller = getReseller(slug)!;
   const [query, setQuery] = useState("");
   const [activeCat, setActiveCat] = useState<string>("Todos");
   const [favs, setFavs] = useState<Set<string>>(new Set());
