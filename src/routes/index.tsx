@@ -80,16 +80,16 @@ const PLANS = [
   },
   {
     name: "Profissional",
-    price: "R$ 59",
-    cadence: "/mês",
+    price: "R$ 99",
+    cadence: "/ano",
     desc: "O mais escolhido pelos revendedores de perfumes.",
     features: ["Produtos ilimitados", "Banners promocionais", "Dashboard de métricas", "Personalização total", "Suporte prioritário"],
     highlight: true,
   },
   {
     name: "Time",
-    price: "R$ 149",
-    cadence: "/mês",
+    price: "R$ 199",
+    cadence: "/ano",
     desc: "Pra quem gerencia vários revendedores de cosméticos.",
     features: ["Tudo do Profissional", "Até 10 revendedores", "Painel administrativo", "Relatórios consolidados"],
     highlight: false,
@@ -137,6 +137,9 @@ function LandingPage() {
             <a href="#faq" className="hover:text-foreground transition">FAQ</a>
           </nav>
           <div className="flex items-center gap-2">
+            <Button asChild variant="ghost" size="sm" className="hidden sm:inline-flex">
+              <Link to="/painel/$slug" params={{ slug: "maria" }}>Painel demo</Link>
+            </Button>
             <Button asChild variant="ghost" size="sm" className="hidden sm:inline-flex">
               <Link to="/loja/$slug" params={{ slug: "maria" }}>Ver demo</Link>
             </Button>
