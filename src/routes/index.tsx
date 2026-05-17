@@ -26,16 +26,16 @@ import {
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "Catálogo Inteligente — Catálogo profissional para revendedores" },
+      { title: "Catálogo Inteligente — Catálogo profissional para revendedores de perfumes e cosméticos" },
       {
         name: "description",
         content:
-          "Plataforma para revendedores de cosméticos, perfumes e semijoias criarem seu catálogo online com link próprio, carrinho e pedidos via WhatsApp.",
+          "Plataforma para revendedores de perfumes, cosméticos, linha corporal e capilar criarem seu catálogo online com link próprio, carrinho e pedidos via WhatsApp.",
       },
       { property: "og:title", content: "Catálogo Inteligente" },
       {
         property: "og:description",
-        content: "Seu catálogo profissional pronto em 1 minuto. Pedidos direto no WhatsApp.",
+        content: "Seu catálogo de perfumes e cosméticos pronto em 1 minuto. Pedidos direto no WhatsApp.",
       },
       { property: "og:type", content: "website" },
     ],
