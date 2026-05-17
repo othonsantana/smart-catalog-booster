@@ -26,16 +26,16 @@ import {
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "Catálogo Inteligente — Catálogo profissional para revendedores" },
+      { title: "Catálogo Inteligente — Catálogo profissional para revendedores de perfumes e cosméticos" },
       {
         name: "description",
         content:
-          "Plataforma para revendedores de cosméticos, perfumes e semijoias criarem seu catálogo online com link próprio, carrinho e pedidos via WhatsApp.",
+          "Plataforma para revendedores de perfumes, cosméticos, linha corporal e capilar criarem seu catálogo online com link próprio, carrinho e pedidos via WhatsApp.",
       },
       { property: "og:title", content: "Catálogo Inteligente" },
       {
         property: "og:description",
-        content: "Seu catálogo profissional pronto em 1 minuto. Pedidos direto no WhatsApp.",
+        content: "Seu catálogo de perfumes e cosméticos pronto em 1 minuto. Pedidos direto no WhatsApp.",
       },
       { property: "og:type", content: "website" },
     ],
@@ -44,19 +44,19 @@ export const Route = createFileRoute("/")({
 });
 
 const BENEFITS = [
-  { icon: Smartphone, title: "Pensado pro celular", text: "Visual de aplicativo, rápido e simples — perfeito pra suas clientes." },
-  { icon: MessageCircle, title: "Pedidos no WhatsApp", text: "A cliente finaliza e o pedido cai direto no seu WhatsApp formatado." },
-  { icon: Link2, title: "Link próprio", text: "Cada revendedora ganha um endereço exclusivo pra compartilhar." },
-  { icon: Palette, title: "Visual personalizado", text: "Banner, cores e produtos do seu jeito, sem precisar mexer em código." },
-  { icon: BarChart3, title: "Métricas em tempo real", text: "Acompanhe acessos, produtos mais clicados e taxa de conversão." },
-  { icon: Zap, title: "Pronto em 1 clique", text: "O administrador duplica um modelo profissional pra você. Você só personaliza." },
+  { icon: Smartphone, title: "Pensado pro celular", text: "Visual de aplicativo, rápido e simples — perfeito pra suas clientes verem seus perfumes e cosméticos." },
+  { icon: MessageCircle, title: "Pedidos no WhatsApp", text: "A cliente escolhe os produtos da linha corporal ou capilar e o pedido cai formatado no seu WhatsApp." },
+  { icon: Link2, title: "Link próprio", text: "Cada revendedor ganha um endereço exclusivo pra compartilhar perfumes e cosméticos." },
+  { icon: Palette, title: "Visual personalizado", text: "Banner, cores e produtos da sua linha corporal e capilar do seu jeito, sem código." },
+  { icon: BarChart3, title: "Métricas em tempo real", text: "Acompanhe acessos, produtos mais clicados e taxa de conversão do seu catálogo." },
+  { icon: Zap, title: "Pronto em 1 clique", text: "O administrador duplica um modelo profissional pra você. Você só personaliza seus perfumes e cosméticos." },
 ];
 
 const FEATURES = [
-  "Cadastro ilimitado de revendedoras",
+  "Cadastro ilimitado de revendedores",
   "Modelos de catálogo profissionais",
   "Mini carrinho inteligente",
-  "Categorias e produtos em destaque",
+  "Categorias: Perfumes, Corporal, Capilar",
   "Banners promocionais",
   "Captura automática de leads",
   "Compartilhamento por WhatsApp",
@@ -64,9 +64,9 @@ const FEATURES = [
 ];
 
 const STEPS = [
-  { n: "01", title: "Crie o modelo", text: "O admin monta um catálogo padrão com produtos, banners e categorias." },
-  { n: "02", title: "Duplica em 1 clique", text: "Cada nova revendedora recebe uma cópia personalizada na hora." },
-  { n: "03", title: "Compartilha o link", text: "A revendedora envia seu catálogo no Status e converte vendas." },
+  { n: "01", title: "Crie o modelo", text: "O admin monta um catálogo padrão com perfumes, cosméticos corporais e capilares." },
+  { n: "02", title: "Duplica em 1 clique", text: "Cada novo revendedor recebe uma cópia personalizada na hora." },
+  { n: "03", title: "Compartilha o link", text: "O revendedor envia seu catálogo no Status e converte vendas de perfumes e cosméticos." },
 ];
 
 const PLANS = [
@@ -74,7 +74,7 @@ const PLANS = [
     name: "Essencial",
     price: "R$ 29",
     cadence: "/mês",
-    desc: "Pra começar a vender online já.",
+    desc: "Pra começar a vender perfumes e cosméticos online já.",
     features: ["Até 30 produtos", "Link próprio", "Pedidos via WhatsApp", "Suporte por chat"],
     highlight: false,
   },
@@ -82,7 +82,7 @@ const PLANS = [
     name: "Profissional",
     price: "R$ 59",
     cadence: "/mês",
-    desc: "O mais escolhido pelas revendedoras.",
+    desc: "O mais escolhido pelos revendedores de perfumes.",
     features: ["Produtos ilimitados", "Banners promocionais", "Dashboard de métricas", "Personalização total", "Suporte prioritário"],
     highlight: true,
   },
@@ -90,22 +90,22 @@ const PLANS = [
     name: "Time",
     price: "R$ 149",
     cadence: "/mês",
-    desc: "Pra quem gerencia várias revendedoras.",
-    features: ["Tudo do Profissional", "Até 10 revendedoras", "Painel administrativo", "Relatórios consolidados"],
+    desc: "Pra quem gerencia vários revendedores de cosméticos.",
+    features: ["Tudo do Profissional", "Até 10 revendedores", "Painel administrativo", "Relatórios consolidados"],
     highlight: false,
   },
 ];
 
 const TESTIMONIALS = [
-  { name: "Carla, 42", role: "Perfumes premium", text: "Em 1 semana minhas vendas pelo WhatsApp dobraram. Minhas clientes adoraram não precisar baixar nada." },
-  { name: "Renata, 38", role: "Skincare e maquiagem", text: "Eu não entendo de tecnologia. Mesmo assim consegui montar tudo sozinha em 10 minutos." },
-  { name: "Beatriz, 51", role: "Semijoias", text: "O link com meu nome ficou lindo. Sinto que tenho uma loja de verdade agora." },
+  { name: "Carla, 42", role: "Perfumes importados", text: "Em 1 semana minhas vendas de perfumes pelo WhatsApp dobraram. Minhas clientes adoram escolher pela foto." },
+  { name: "Renata, 38", role: "Linha capilar e corporal", text: "Eu vendo kits de cabelo e hidratantes. O catálogo ficou tão lindo que minhas clientes acham que tenho uma loja de verdade." },
+  { name: "Beatriz, 51", role: "Cosméticos premium", text: "O link com meu nome ficou perfeito. Agora vendo minha linha corporal e perfumes de forma muito mais organizada." },
 ];
 
 const FAQS = [
-  { q: "Eu preciso saber de tecnologia?", a: "Não. Tudo é feito em poucos cliques pelo celular ou computador, com modelos prontos." },
-  { q: "Como funciona o pedido?", a: "A cliente escolhe os produtos, finaliza com nome e telefone, e o pedido chega formatado no seu WhatsApp." },
-  { q: "Posso mudar o visual da loja?", a: "Sim. Você personaliza banners, cores, logo e os produtos que aparecem." },
+  { q: "Eu preciso saber de tecnologia?", a: "Não. Tudo é feito em poucos cliques pelo celular ou computador, com modelos prontos pra perfumes e cosméticos." },
+  { q: "Como funciona o pedido?", a: "A cliente escolhe os produtos da linha corporal ou capilar, finaliza com nome e telefone, e o pedido chega formatado no seu WhatsApp." },
+  { q: "Posso mudar o visual da loja?", a: "Sim. Você personaliza banners, cores, logo e os produtos que aparecem — perfumes, cremes, shampoos etc." },
   { q: "Preciso pagar pra testar?", a: "Não. Você experimenta a plataforma gratuitamente antes de assinar." },
 ];
 
@@ -165,7 +165,7 @@ function LandingPage() {
               Seu catálogo profissional, pronto em <span className="text-primary">1 minuto</span>.
             </h1>
             <p className="mt-5 text-lg text-muted-foreground max-w-xl">
-              A plataforma feita pra revendedoras de cosméticos, perfumes e semijoias.
+              A plataforma feita pra revendedores de perfumes, cosméticos, linha corporal e capilar.
               Link próprio, mini carrinho e pedidos formatados direto no seu WhatsApp.
             </p>
             <div className="mt-7 flex flex-wrap gap-3">
@@ -190,7 +190,7 @@ function LandingPage() {
                   </div>
                 ))}
               </div>
-              <span>+2.300 revendedoras já vendem com a gente</span>
+              <span>+2.300 revendedores de perfumes e cosméticos já vendem com a gente</span>
             </div>
           </motion.div>
 
@@ -484,7 +484,7 @@ function LandingPage() {
             </span>
             Catálogo Inteligente
           </div>
-          <div>© {new Date().getFullYear()} — Feito com carinho pra revendedoras.</div>
+          <div>© {new Date().getFullYear()} — Feito com carinho pra quem vende perfumes e cosméticos.</div>
         </div>
       </footer>
     </div>

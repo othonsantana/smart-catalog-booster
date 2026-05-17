@@ -1,9 +1,9 @@
-import perfume from "@/assets/product-perfume.jpg";
-import cream from "@/assets/product-cream.jpg";
-import jewelry from "@/assets/product-jewelry.jpg";
-import lipstick from "@/assets/product-lipstick.jpg";
-import scarf from "@/assets/product-scarf.jpg";
-import earrings from "@/assets/product-earrings.jpg";
+import perfumeFloral from "@/assets/perfume-floral.jpg";
+import bodyCream from "@/assets/body-cream.jpg";
+import hairCare from "@/assets/hair-care.jpg";
+import bodyOil from "@/assets/body-oil.jpg";
+import hairMask from "@/assets/hair-mask.jpg";
+import showerGel from "@/assets/shower-gel.jpg";
 import banner from "@/assets/catalog-banner.jpg";
 
 export type Product = {
@@ -29,62 +29,80 @@ export type Reseller = {
   products: Product[];
 };
 
-const CATEGORIES = ["Perfumes", "Skincare", "Maquiagem", "Semijoias", "Moda"];
+const CATEGORIES = ["Perfumes", "Linha Corporal", "Linha Capilar"];
 
 const baseProducts: Product[] = [
   {
     id: "p1",
-    name: "Eau de Parfum Pacieh",
-    description: "Fragrância floral amadeirada, 100ml. Fixação 8h+.",
+    name: "Eau de Parfum Floral",
+    description: "Fragrância floral amadeirada, 100ml. Fixação 8h+. Notas de jasmim e sândalo.",
     price: 189.9,
     oldPrice: 249.9,
-    image: perfume,
+    image: perfumeFloral,
     category: "Perfumes",
     featured: true,
   },
   {
     id: "p2",
-    name: "Creme Hidratante Lavanda",
-    description: "Hidratação profunda com extrato de lavanda.",
-    price: 89.9,
-    image: cream,
-    category: "Skincare",
+    name: "Creme Hidratante Corporal",
+    description: "Hidratação profunda 24h com manteiga de karité e vitamina E. 400ml.",
+    price: 79.9,
+    oldPrice: 99.9,
+    image: bodyCream,
+    category: "Linha Corporal",
     featured: true,
   },
   {
     id: "p3",
-    name: "Colar Gota Quartzo Rosa",
-    description: "Banhado a ouro 18k, pingente quartzo natural.",
-    price: 129.0,
-    oldPrice: 159.0,
-    image: jewelry,
-    category: "Semijoias",
+    name: "Kit Shampoo + Condicionador",
+    description: "Reparação intensiva com óleo de argan. Cabelos sedosos e brilhantes. 2x300ml.",
+    price: 109.9,
+    oldPrice: 139.9,
+    image: hairCare,
+    category: "Linha Capilar",
     featured: true,
   },
   {
     id: "p4",
-    name: "Kit Batons Matte Coleção Rosé",
-    description: "Conjunto com 4 tons exclusivos de longa duração.",
-    price: 119.9,
-    image: lipstick,
-    category: "Maquiagem",
+    name: "Óleo Corporal Satin",
+    description: "Óleo seco com partículas luminosas. Hidrata e ilumina a pele. 150ml.",
+    price: 94.9,
+    image: bodyOil,
+    category: "Linha Corporal",
+    featured: true,
   },
   {
     id: "p5",
-    name: "Lenço de Seda Bicolor",
-    description: "Seda 100% natural, 90x90cm, acabamento manual.",
-    price: 159.0,
-    image: scarf,
-    category: "Moda",
+    name: "Máscara Capilar Restauração",
+    description: "Máscara de reposição de massa capilar. Cabelos danificados e quimicamente tratados. 250g.",
+    price: 69.9,
+    oldPrice: 89.9,
+    image: hairMask,
+    category: "Linha Capilar",
   },
   {
     id: "p6",
-    name: "Brincos Pérola Gota",
-    description: "Pérolas cultivadas com encaixe banhado a ouro.",
-    price: 79.9,
-    oldPrice: 99.9,
-    image: earrings,
-    category: "Semijoias",
+    name: "Gel de Banho Perfumado",
+    description: "Espuma cremosa com fragrância duradoura. pH balanceado. 250ml.",
+    price: 49.9,
+    image: showerGel,
+    category: "Linha Corporal",
+  },
+  {
+    id: "p7",
+    name: "Perfume Oriental Noir",
+    description: "Fragrância envolvente com notas de baunilha, âmbar e patchouli. 100ml.",
+    price: 219.9,
+    image: perfumeFloral,
+    category: "Perfumes",
+  },
+  {
+    id: "p8",
+    name: "Sérum Capilar Reparador",
+    description: "Sérum leave-in com queratina e proteínas. Protege das agressões diárias. 60ml.",
+    price: 59.9,
+    image: bodyOil,
+    category: "Linha Capilar",
     featured: true,
   },
 ];
@@ -94,7 +112,7 @@ export const RESELLERS: Record<string, Reseller> = {
     slug: "maria",
     name: "Maria Helena",
     storeName: "Maria Helena Beauty",
-    bio: "Curadoria de cosméticos e semijoias para mulheres que amam se cuidar.",
+    bio: "Perfumes importados e cosméticos de alta performance para quem ama se cuidar da cabeça aos pés.",
     whatsapp: "5511999990001",
     instagram: "@mariahelena.beauty",
     avatarInitials: "MH",
@@ -104,13 +122,13 @@ export const RESELLERS: Record<string, Reseller> = {
   joana: {
     slug: "joana",
     name: "Joana Lima",
-    storeName: "Atelier da Joana",
-    bio: "Perfumes importados e semijoias exclusivas com entrega rápida.",
+    storeName: "Joana Perfumes",
+    bio: "Especialista em fragrâncias exclusivas e linha capilar profissional. Entrega rápida.",
     whatsapp: "5511988880002",
-    instagram: "@atelier.joana",
+    instagram: "@joana.perfumes",
     avatarInitials: "JL",
     banner,
-    products: baseProducts,
+    products: baseProducts.map((p) => ({ ...p, id: p.id + "_j" })),
   },
 };
 
