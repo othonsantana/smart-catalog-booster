@@ -74,7 +74,7 @@ const PLANS = [
     name: "Essencial",
     price: "R$ 29",
     cadence: "/mês",
-    desc: "Pra começar a vender online já.",
+    desc: "Pra começar a vender perfumes e cosméticos online já.",
     features: ["Até 30 produtos", "Link próprio", "Pedidos via WhatsApp", "Suporte por chat"],
     highlight: false,
   },
@@ -82,7 +82,7 @@ const PLANS = [
     name: "Profissional",
     price: "R$ 59",
     cadence: "/mês",
-    desc: "O mais escolhido pelas revendedoras.",
+    desc: "O mais escolhido pelos revendedores de perfumes.",
     features: ["Produtos ilimitados", "Banners promocionais", "Dashboard de métricas", "Personalização total", "Suporte prioritário"],
     highlight: true,
   },
@@ -90,22 +90,22 @@ const PLANS = [
     name: "Time",
     price: "R$ 149",
     cadence: "/mês",
-    desc: "Pra quem gerencia várias revendedoras.",
-    features: ["Tudo do Profissional", "Até 10 revendedoras", "Painel administrativo", "Relatórios consolidados"],
+    desc: "Pra quem gerencia vários revendedores de cosméticos.",
+    features: ["Tudo do Profissional", "Até 10 revendedores", "Painel administrativo", "Relatórios consolidados"],
     highlight: false,
   },
 ];
 
 const TESTIMONIALS = [
-  { name: "Carla, 42", role: "Perfumes premium", text: "Em 1 semana minhas vendas pelo WhatsApp dobraram. Minhas clientes adoraram não precisar baixar nada." },
-  { name: "Renata, 38", role: "Skincare e maquiagem", text: "Eu não entendo de tecnologia. Mesmo assim consegui montar tudo sozinha em 10 minutos." },
-  { name: "Beatriz, 51", role: "Semijoias", text: "O link com meu nome ficou lindo. Sinto que tenho uma loja de verdade agora." },
+  { name: "Carla, 42", role: "Perfumes importados", text: "Em 1 semana minhas vendas de perfumes pelo WhatsApp dobraram. Minhas clientes adoram escolher pela foto." },
+  { name: "Renata, 38", role: "Linha capilar e corporal", text: "Eu vendo kits de cabelo e hidratantes. O catálogo ficou tão lindo que minhas clientes acham que tenho uma loja de verdade." },
+  { name: "Beatriz, 51", role: "Cosméticos premium", text: "O link com meu nome ficou perfeito. Agora vendo minha linha corporal e perfumes de forma muito mais organizada." },
 ];
 
 const FAQS = [
-  { q: "Eu preciso saber de tecnologia?", a: "Não. Tudo é feito em poucos cliques pelo celular ou computador, com modelos prontos." },
-  { q: "Como funciona o pedido?", a: "A cliente escolhe os produtos, finaliza com nome e telefone, e o pedido chega formatado no seu WhatsApp." },
-  { q: "Posso mudar o visual da loja?", a: "Sim. Você personaliza banners, cores, logo e os produtos que aparecem." },
+  { q: "Eu preciso saber de tecnologia?", a: "Não. Tudo é feito em poucos cliques pelo celular ou computador, com modelos prontos pra perfumes e cosméticos." },
+  { q: "Como funciona o pedido?", a: "A cliente escolhe os produtos da linha corporal ou capilar, finaliza com nome e telefone, e o pedido chega formatado no seu WhatsApp." },
+  { q: "Posso mudar o visual da loja?", a: "Sim. Você personaliza banners, cores, logo e os produtos que aparecem — perfumes, cremes, shampoos etc." },
   { q: "Preciso pagar pra testar?", a: "Não. Você experimenta a plataforma gratuitamente antes de assinar." },
 ];
 
