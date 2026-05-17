@@ -119,7 +119,7 @@ export const RESELLERS: Record<string, Reseller> = {
     instagram: "@mariahelena.beauty",
     avatarInitials: "MH",
     banner,
-    products: baseProducts,
+    products: DEFAULT_PRODUCTS,
   },
   joana: {
     slug: "joana",
@@ -130,7 +130,7 @@ export const RESELLERS: Record<string, Reseller> = {
     instagram: "@joana.perfumes",
     avatarInitials: "JL",
     banner,
-    products: baseProducts.map((p) => ({ ...p, id: p.id + "_j" })),
+    products: DEFAULT_PRODUCTS.map((p) => ({ ...p, id: p.id + "_j" })),
   },
 };
 
