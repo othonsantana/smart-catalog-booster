@@ -44,19 +44,19 @@ export const Route = createFileRoute("/")({
 });
 
 const BENEFITS = [
-  { icon: Smartphone, title: "Pensado pro celular", text: "Visual de aplicativo, rápido e simples — perfeito pra suas clientes." },
-  { icon: MessageCircle, title: "Pedidos no WhatsApp", text: "A cliente finaliza e o pedido cai direto no seu WhatsApp formatado." },
-  { icon: Link2, title: "Link próprio", text: "Cada revendedora ganha um endereço exclusivo pra compartilhar." },
-  { icon: Palette, title: "Visual personalizado", text: "Banner, cores e produtos do seu jeito, sem precisar mexer em código." },
-  { icon: BarChart3, title: "Métricas em tempo real", text: "Acompanhe acessos, produtos mais clicados e taxa de conversão." },
-  { icon: Zap, title: "Pronto em 1 clique", text: "O administrador duplica um modelo profissional pra você. Você só personaliza." },
+  { icon: Smartphone, title: "Pensado pro celular", text: "Visual de aplicativo, rápido e simples — perfeito pra suas clientes verem seus perfumes e cosméticos." },
+  { icon: MessageCircle, title: "Pedidos no WhatsApp", text: "A cliente escolhe os produtos da linha corporal ou capilar e o pedido cai formatado no seu WhatsApp." },
+  { icon: Link2, title: "Link próprio", text: "Cada revendedor ganha um endereço exclusivo pra compartilhar perfumes e cosméticos." },
+  { icon: Palette, title: "Visual personalizado", text: "Banner, cores e produtos da sua linha corporal e capilar do seu jeito, sem código." },
+  { icon: BarChart3, title: "Métricas em tempo real", text: "Acompanhe acessos, produtos mais clicados e taxa de conversão do seu catálogo." },
+  { icon: Zap, title: "Pronto em 1 clique", text: "O administrador duplica um modelo profissional pra você. Você só personaliza seus perfumes e cosméticos." },
 ];
 
 const FEATURES = [
-  "Cadastro ilimitado de revendedoras",
+  "Cadastro ilimitado de revendedores",
   "Modelos de catálogo profissionais",
   "Mini carrinho inteligente",
-  "Categorias e produtos em destaque",
+  "Categorias: Perfumes, Corporal, Capilar",
   "Banners promocionais",
   "Captura automática de leads",
   "Compartilhamento por WhatsApp",
@@ -64,9 +64,9 @@ const FEATURES = [
 ];
 
 const STEPS = [
-  { n: "01", title: "Crie o modelo", text: "O admin monta um catálogo padrão com produtos, banners e categorias." },
-  { n: "02", title: "Duplica em 1 clique", text: "Cada nova revendedora recebe uma cópia personalizada na hora." },
-  { n: "03", title: "Compartilha o link", text: "A revendedora envia seu catálogo no Status e converte vendas." },
+  { n: "01", title: "Crie o modelo", text: "O admin monta um catálogo padrão com perfumes, cosméticos corporais e capilares." },
+  { n: "02", title: "Duplica em 1 clique", text: "Cada novo revendedor recebe uma cópia personalizada na hora." },
+  { n: "03", title: "Compartilha o link", text: "O revendedor envia seu catálogo no Status e converte vendas de perfumes e cosméticos." },
 ];
 
 const PLANS = [
