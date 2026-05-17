@@ -2,6 +2,7 @@ import { createFileRoute, Link, notFound } from "@tanstack/react-router";
 import { useMemo, useState } from "react";
 import { motion, AnimatePresence } from "motion/react";
 import { getReseller, formatBRL, type Product } from "@/lib/catalog-data";
+import { useReseller } from "@/lib/reseller-store";
 import { cartStore, useCart } from "@/lib/cart-store";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
