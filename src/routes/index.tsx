@@ -138,6 +138,9 @@ function LandingPage() {
           </nav>
           <div className="flex items-center gap-2">
             <Button asChild variant="ghost" size="sm" className="hidden sm:inline-flex">
+              <Link to="/painel/$slug" params={{ slug: "maria" }}>Painel demo</Link>
+            </Button>
+            <Button asChild variant="ghost" size="sm" className="hidden sm:inline-flex">
               <Link to="/loja/$slug" params={{ slug: "maria" }}>Ver demo</Link>
             </Button>
             <Button asChild size="sm" className="rounded-full px-4 bg-primary-gradient shadow-glow">

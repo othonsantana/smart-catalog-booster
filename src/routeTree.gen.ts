@@ -11,6 +11,7 @@
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as SitemapDotxmlRouteImport } from './routes/sitemap[.]xml'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as PainelSlugRouteImport } from './routes/painel.$slug'
 import { Route as LojaSlugRouteImport } from './routes/loja.$slug'
 
 const SitemapDotxmlRoute = SitemapDotxmlRouteImport.update({
@@ -23,6 +24,11 @@ const IndexRoute = IndexRouteImport.update({
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const PainelSlugRoute = PainelSlugRouteImport.update({
+  id: '/painel/$slug',
+  path: '/painel/$slug',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const LojaSlugRoute = LojaSlugRouteImport.update({
   id: '/loja/$slug',
   path: '/loja/$slug',
@@ -33,30 +39,34 @@ export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/loja/$slug': typeof LojaSlugRoute
+  '/painel/$slug': typeof PainelSlugRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/loja/$slug': typeof LojaSlugRoute
+  '/painel/$slug': typeof PainelSlugRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/loja/$slug': typeof LojaSlugRoute
+  '/painel/$slug': typeof PainelSlugRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/sitemap.xml' | '/loja/$slug'
+  fullPaths: '/' | '/sitemap.xml' | '/loja/$slug' | '/painel/$slug'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/sitemap.xml' | '/loja/$slug'
-  id: '__root__' | '/' | '/sitemap.xml' | '/loja/$slug'
+  to: '/' | '/sitemap.xml' | '/loja/$slug' | '/painel/$slug'
+  id: '__root__' | '/' | '/sitemap.xml' | '/loja/$slug' | '/painel/$slug'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   SitemapDotxmlRoute: typeof SitemapDotxmlRoute
   LojaSlugRoute: typeof LojaSlugRoute
+  PainelSlugRoute: typeof PainelSlugRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -75,6 +85,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/painel/$slug': {
+      id: '/painel/$slug'
+      path: '/painel/$slug'
+      fullPath: '/painel/$slug'
+      preLoaderRoute: typeof PainelSlugRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/loja/$slug': {
       id: '/loja/$slug'
       path: '/loja/$slug'
@@ -89,6 +106,7 @@ const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   SitemapDotxmlRoute: SitemapDotxmlRoute,
   LojaSlugRoute: LojaSlugRoute,
+  PainelSlugRoute: PainelSlugRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
