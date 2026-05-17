@@ -165,7 +165,7 @@ function LandingPage() {
               Seu catálogo profissional, pronto em <span className="text-primary">1 minuto</span>.
             </h1>
             <p className="mt-5 text-lg text-muted-foreground max-w-xl">
-              A plataforma feita pra revendedoras de cosméticos, perfumes e semijoias.
+              A plataforma feita pra revendedores de perfumes, cosméticos, linha corporal e capilar.
               Link próprio, mini carrinho e pedidos formatados direto no seu WhatsApp.
             </p>
             <div className="mt-7 flex flex-wrap gap-3">
