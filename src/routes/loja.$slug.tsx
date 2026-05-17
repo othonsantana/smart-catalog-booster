@@ -27,6 +27,7 @@ import {
   Share2,
   Sparkles,
   Check,
+  Download,
 } from "lucide-react";
 
 export const Route = createFileRoute("/loja/$slug")({
@@ -143,6 +144,11 @@ function StorePage() {
             }}
           >
             <div className="absolute inset-0 bg-gradient-to-t from-foreground/40 to-transparent" />
+            {reseller.banner && (
+              <button onClick={() => { fetch(reseller.banner).then(r => r.blob()).then(b => { const a = document.createElement('a'); a.href = URL.createObjectURL(b); a.download = 'banner.jpg'; a.click(); URL.revokeObjectURL(a.href); }).catch(() => window.open(reseller.banner, '_blank')); }} className="absolute top-3 right-3 w-8 h-8 rounded-full bg-background/80 backdrop-blur grid place-items-center shadow-soft z-10" aria-label="Baixar banner">
+                <Download className="w-4 h-4" />
+              </button>
+            )}
           </div>
           <div className="relative -mt-10 px-4 flex items-end gap-4">
             <div className="w-20 h-20 rounded-2xl bg-primary-gradient grid place-items-center text-primary-foreground text-xl font-display font-bold shadow-elevated border-4 border-background">
@@ -249,6 +255,8 @@ function StorePage() {
                   key={p.id}
                   product={p}
                   resellerSlug={reseller.slug}
+                  whatsapp={reseller.whatsapp}
+                  storeUrl={typeof window !== 'undefined' ? window.location.href : ''}
                   isFav={favs.has(p.id)}
                   onFav={() => toggleFav(p.id)}
                   delay={i * 0.02}
@@ -309,6 +317,8 @@ function ProductCard({
 }: {
   product: Product;
   resellerSlug: string;
+  whatsapp: string;
+  storeUrl: string;
   isFav: boolean;
   onFav: () => void;
   delay: number;
@@ -362,6 +372,16 @@ function ProductCard({
             <span className="inline-flex items-center gap-1.5"><Plus className="w-4 h-4" /> Adicionar</span>
           )}
         </button>
+        <div className="mt-2 flex gap-1.5">
+          {product.image && (
+            <a href={product.image} download={`${product.name}.jpg`} target="_blank" rel="noreferrer" className="flex-1 inline-flex items-center justify-center gap-1 rounded-lg py-1.5 text-[11px] font-medium bg-secondary text-secondary-foreground hover:bg-secondary/80 transition" onClick={(e) => { e.preventDefault(); fetch(product.image).then(r => r.blob()).then(b => { const a = document.createElement('a'); a.href = URL.createObjectURL(b); a.download = `${product.name}.jpg`; a.click(); URL.revokeObjectURL(a.href); }).catch(() => window.open(product.image, '_blank')); }}>
+              <Download className="w-3 h-3" /> Baixar
+            </a>
+          )}
+          <a href={`https://wa.me/?text=${encodeURIComponent(`Olha esse produto: *${product.name}*\nPreço: ${formatBRL(product.price)}\n${storeUrl}`)}`} target="_blank" rel="noreferrer" className="flex-1 inline-flex items-center justify-center gap-1 rounded-lg py-1.5 text-[11px] font-medium text-white transition" style={{ background: 'var(--whatsapp)' }}>
+            <MessageCircle className="w-3 h-3" /> Enviar
+          </a>
+        </div>
       </div>
     </motion.div>
   );
