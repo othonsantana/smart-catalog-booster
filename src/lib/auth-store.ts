@@ -67,5 +67,5 @@ export function login(username: string, password: string): { success: boolean; r
 export function logout() {
   if (typeof window === "undefined") return;
   localStorage.removeItem(AUTH_KEY);
-  window.location.href = "/";
+  window.location.href = "/login";
 }
