@@ -10,7 +10,7 @@ import { Textarea } from "@/components/ui/textarea";
 import { Card } from "@/components/ui/card";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogFooter } from "@/components/ui/dialog";
-import { LayoutDashboard, FileText, Users, Plus, Pencil, Trash2, ExternalLink, Copy, Package, Sparkles, LogOut, Phone, Store, Lock, Unlock, Key, ShieldCheck, ShieldX, Upload, ImageIcon } from "lucide-react";
+import { LayoutDashboard, FileText, Users, Plus, Pencil, Trash2, ExternalLink, Copy, Package, Sparkles, LogOut, Phone, Store, Lock, Unlock, Key, ShieldCheck, ShieldX, Upload, Image as ImageIcon } from "lucide-react";
 
 export const Route = createFileRoute("/admin")({
   head: () => ({ meta: [{ title: "Painel Admin — Catálogo Inteligente" }, { name: "robots", content: "noindex" }] }),
