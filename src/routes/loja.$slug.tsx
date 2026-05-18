@@ -311,6 +311,7 @@ function StorePage() {
 function ProductCard({
   product,
   resellerSlug,
+  storeUrl,
   isFav,
   onFav,
   delay,

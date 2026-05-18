@@ -1,7 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
 import type {} from "@tanstack/react-start";
 
-const BASE_URL = "";
+const BASE_URL = "https://smart-catalog-booster.lovable.app";
 
 export const Route = createFileRoute("/sitemap.xml")({
   server: {
@@ -9,6 +9,7 @@ export const Route = createFileRoute("/sitemap.xml")({
       GET: async () => {
         const entries = [
           { path: "/", changefreq: "weekly", priority: "1.0" },
+          { path: "/login", changefreq: "monthly", priority: "0.3" },
           { path: "/loja/maria", changefreq: "daily", priority: "0.8" },
           { path: "/loja/joana", changefreq: "daily", priority: "0.8" },
         ];
