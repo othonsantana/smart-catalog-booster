@@ -404,7 +404,6 @@ function CartSheet({
 }) {
   const [step, setStep] = useState<"cart" | "checkout">("cart");
   const [name, setName] = useState("");
-  const [phone, setPhone] = useState("");
   const [address, setAddress] = useState("");
   const [note, setNote] = useState("");
 
@@ -418,7 +417,6 @@ function CartSheet({
       "",
       `*Dados de entrega*`,
       `Nome: ${name}`,
-      `Telefone: ${phone}`,
       `Endereço: ${address}`,
     ];
     if (note.trim()) lines.push(`Observação: ${note}`);
@@ -426,7 +424,7 @@ function CartSheet({
   }
 
   function sendOrder() {
-    if (!name || !phone || !address) return;
+    if (!name || !address) return;
     const text = encodeURIComponent(buildMessage());
     const url = `https://wa.me/${whatsapp}?text=${text}`;
     cartStore.clear(slug);
@@ -500,10 +498,6 @@ function CartSheet({
               <Input value={name} onChange={(e) => setName(e.target.value)} className="mt-1 h-11 rounded-xl" placeholder="Seu nome" />
             </div>
             <div>
-              <label className="text-sm font-medium">Telefone (WhatsApp)</label>
-              <Input value={phone} onChange={(e) => setPhone(e.target.value)} className="mt-1 h-11 rounded-xl" placeholder="(11) 9 9999-9999" />
-            </div>
-            <div>
               <label className="text-sm font-medium">Endereço de entrega</label>
               <Input value={address} onChange={(e) => setAddress(e.target.value)} className="mt-1 h-11 rounded-xl" placeholder="Rua, número, bairro, cidade" />
             </div>
@@ -517,7 +511,7 @@ function CartSheet({
               Voltar
             </Button>
             <Button
-              disabled={!name || !phone || !address}
+              disabled={!name || !address}
               onClick={sendOrder}
               className="flex-1 rounded-full h-12 text-white"
               style={{ background: "var(--whatsapp)" }}
